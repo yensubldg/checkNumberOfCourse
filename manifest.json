@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Hỗ trợ",
+  "version": "1.0",
+  "description": "Hỗ trợ",
+  "author": "yensubldg",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["*://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["http://courses.duytan.edu.vn/*"],
+      "js": ["content-script.js"]
+    }
+  ],
+  "permissions": ["storage", "tabs", "scripting", "activeTab"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://mydtu.duytan.edu.vn https://winbot-mydtu.thangtruong4.repl.co https://winbot-mydtu.thangtruong4.repl.co:443"
+  }
+}
